@@ -1,0 +1,61 @@
+{
+  "_nota": "Para poner precios, cambia null por el valor entre comillas, por ejemplo \"18.000\". Luego ejecuta: python3 fuente/generar_menu.py",
+  "restaurante": "Come Pues...",
+  "telefonos": ["300 155 8094", "302 387 7431", "301 172 8125"],
+  "web": "comepues.com",
+  "categorias": [
+    {
+      "titulo": "Hamburguesas",
+      "frase": ["¡Aquí no se pasa hambre!", "Antojo que se respeta"],
+      "productos": [
+        {"nombre": "La Descomplicada", "descripcion": "Pan, carne, tomate, lechuga, cebolla caramelizada, ripio, queso y jamón.", "precio": null},
+        {"nombre": "La Sin Límite", "descripcion": "Pan, carne, pollo crocante, tocineta, tomate, lechuga, cebolla caramelizada, queso, jamón y adición de papas.", "precio": null}
+      ]
+    },
+    {
+      "titulo": "Perros calientes",
+      "frase": ["Bien servido, bien comido", "Prueba uno y repites"],
+      "productos": [
+        {"nombre": "El Come Callado", "descripcion": "Pan, salchicha americana, queso, ripio y cebolla caramelizada.", "precio": null},
+        {"nombre": "El Malcriado", "descripcion": "Pan, salchicha americana, queso, ripio, cebolla caramelizada, tocineta y adición de papas.", "precio": null}
+      ]
+    },
+    {
+      "titulo": "Salchipapas",
+      "productos": [
+        {"nombre": "La Tramposa", "descripcion": "Papa, salchicha americana, queso y ripio.", "precios": {"Personal": null, "2 personas": null}},
+        {"nombre": "La Mata Hambre", "descripcion": "Papa, salchicha americana, queso, tocineta y ripio.", "precios": {"Personal": null, "2 personas": null}},
+        {"nombre": "La Sin Vergüenza", "descripcion": "Papa, salchicha americana, tocineta, ripio, carne o pollo, maicitos y maduro.", "precios": {"Personal": null, "2 personas": null}},
+        {"nombre": "La Come Pues", "descripcion": "Con todo.", "precios": {"Personal": null, "2 personas": null}}
+      ]
+    },
+    {
+      "titulo": "Arepas",
+      "productos": [
+        {"nombre": "La Pollota", "descripcion": "Arepa, jamón, queso, huevo y pollo. Piña opcional.", "precio": null},
+        {"nombre": "La Impostora", "descripcion": "Arepa, carne, jamón, queso y huevo. Piña opcional.", "precio": null},
+        {"nombre": "Dulce Tentación", "descripcion": "Arepa, queso, jamón, piña calada y huevo.", "precio": null},
+        {"nombre": "La Pecadora", "descripcion": "Con todo.", "precio": null}
+      ]
+    },
+    {
+      "titulo": "Bebidas",
+      "numerar": false,
+      "productos": [
+        {"nombre": "Gaseosa 1 litro", "precio": null},
+        {"nombre": "Gaseosa 2.5 litros", "precio": null},
+        {"nombre": "Jugo Hit litro", "precio": null},
+        {"nombre": "Agua", "precio": null}
+      ],
+      "jugos": {
+        "titulo": "Jugos naturales",
+        "sabores": ["Mango", "Mora", "Fresa", "Maracuyá"],
+        "tamanos": ["9 oz", "12 oz"],
+        "precios": {
+          "En agua": [null, null],
+          "En leche": [null, null]
+        }
+      }
+    }
+  ]
+}
