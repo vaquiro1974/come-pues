@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hablador de mesa - Menú QR</title>
 <style>
-  /* ====== EDITA AQUÍ: colores de tu marca ====== */
+  /* ====== EDITA AQUÍ: colores de la marca ====== */
   :root {
-    --color-principal: #d62828;  /* fondo del encabezado y del pie */
-    --color-acento:    #ffb703;  /* detalles y flecha */
-    --color-texto:     #1d1d1f;
+    --fondo: #211a14;
+    --cobre: #d39a6a;
+    --crema: #f4e6cc;
+    --tenue: #6b4f3a;
   }
 
   @page { size: letter portrait; margin: 8mm; }
@@ -17,8 +18,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    color: var(--color-texto);
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--crema);
     background: #eee;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -29,9 +30,9 @@
     margin: 12px auto;
     padding: 12px 16px;
     background: #fff;
-    border-left: 4px solid var(--color-principal);
-    font-size: 14px;
-    line-height: 1.5;
+    color: #1d1d1f;
+    border-left: 4px solid var(--cobre);
+    font: 14px/1.5 Arial, sans-serif;
   }
   .ayuda button {
     margin-top: 8px;
@@ -52,74 +53,78 @@
 
   .hablador {
     border: 1px dashed #999;      /* línea de corte */
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+    background: var(--fondo);
+    padding: 3mm;
     overflow: hidden;
   }
-
-  .encabezado {
-    background: var(--color-principal);
-    color: #fff;
-    padding: 6mm 4mm 5mm;
-  }
-  .encabezado .restaurante {
-    font-size: 11pt;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: .9;
-  }
-  .encabezado .cta {
-    margin-top: 2mm;
-    font-size: 21pt;
-    font-weight: 800;
-    line-height: 1.1;
-  }
-
-  .cuerpo {
-    flex: 1;
+  .marco {
+    height: 100%;
+    border: 0.3mm solid var(--tenue);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 3mm;
-    padding: 3mm;
+    justify-content: space-between;
+    text-align: center;
+    padding: 3mm 3mm 2.5mm;
   }
-  .flecha {
-    font-size: 16pt;
-    line-height: 1;
-    color: var(--color-acento);
+
+  .titulo {
+    font-family: "DIN Condensed", "Arial Narrow", Impact, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
   }
+
+  .logo {
+    width: 25mm;
+    height: 25mm;
+    border-radius: 50%;
+    display: block;
+  }
+  .cta {
+    font-size: 25pt;
+    line-height: 0.95;
+    color: var(--crema);
+    padding-top: 1.5mm;
+  }
+  .cta span { color: var(--cobre); }
+
   .qr {
-    width: 52mm;
-    height: 52mm;
+    width: 46mm;
+    height: 46mm;
     padding: 2mm;                 /* zona blanca alrededor del QR: no la quites */
     background: #fff;
-    border: 1.5mm solid var(--color-texto);
+    border: 0.8mm solid var(--cobre);
     border-radius: 3mm;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .qr img { width: 100%; height: 100%; display: block; }
-  .qr .falta {
+  .qr .falta { font: 9pt/1.4 Arial, sans-serif; color: #888; }
+
+  .pasos {
     font-size: 9pt;
-    color: #888;
     line-height: 1.4;
   }
-  .pasos {
-    font-size: 9.5pt;
-    line-height: 1.45;
-  }
-  .pasos b { color: var(--color-principal); }
+  .pasos b { color: var(--cobre); font: 700 11pt "DIN Condensed", "Arial Narrow", sans-serif; }
+  .pasos em { color: var(--cobre); }
 
   .pie {
-    background: var(--color-texto);
-    color: #fff;
-    padding: 3mm;
-    font-size: 8.5pt;
+    width: 100%;
+    border-top: 0.3mm solid var(--tenue);
+    padding-top: 1.8mm;
   }
-  .pie span { color: var(--color-acento); font-weight: 700; }
+  .pie .llama {
+    font-size: 8pt;
+    letter-spacing: 1.5px;
+    color: var(--cobre);
+  }
+  .pie .telefonos {
+    font-size: 13pt;
+    line-height: 1.1;
+    padding-top: 0.6mm;
+  }
+  .pie .telefonos i { font-style: normal; color: var(--cobre); padding: 0 1.2mm; }
 
   @media print {
     body { background: #fff; }
@@ -130,10 +135,9 @@
 <body>
 
 <div class="ayuda">
-  <b>Cómo usar esta plantilla:</b> guarda tu código QR como <code>qr.png</code> en la misma carpeta que este archivo,
-  cambia los textos marcados con «EDITA» en el código y pulsa imprimir.
-  En el diálogo de impresión elige tamaño <b>Carta</b>, escala <b>100&nbsp;%</b> y activa <b>«Gráficos de fondo»</b>.
-  Salen 4 habladores de 10 × 13 cm por hoja.
+  <b>Cómo imprimir:</b> en el diálogo de impresión elige tamaño <b>Carta</b>, escala <b>100&nbsp;%</b> y activa
+  <b>«Gráficos de fondo»</b> (sin eso el fondo oscuro no sale). Salen 4 habladores de 10 × 13 cm por hoja.
+  El QR es el archivo <code>qr.png</code> de esta carpeta.
   <br><button onclick="window.print()">Imprimir</button>
 </div>
 
@@ -141,26 +145,26 @@
 
   <!-- Este hablador se copia solo 4 veces: edítalo una única vez -->
   <div class="hablador">
-    <div class="encabezado">
-      <div class="restaurante">Come Pues...</div>   <!-- EDITA -->
-      <div class="cta">Escanea y mira<br>nuestro menú</div>    <!-- EDITA -->
-    </div>
+    <div class="marco">
+      <img class="logo" src="../fuente/img/logo.jpg" alt="Come Pues...">
 
-    <div class="cuerpo">
-      <div class="flecha">▼</div>
+      <div class="cta titulo">Escanea y mira<br><span>nuestro menú</span></div>
+
       <div class="qr">
         <img src="qr.png" alt="Código QR del menú"
              onerror="this.outerHTML='<div class=falta>Falta el archivo<br><b>qr.png</b><br>en esta carpeta</div>'">
       </div>
+
       <div class="pasos">
         <b>1.</b> Abre la cámara de tu celular<br>
-        <b>2.</b> Apunta al código<br>
-        <b>3.</b> Toca el enlace y ¡a pedir!
+        <b>2.</b> Apunta al código y toca el enlace<br>
+        ¿No te abre? Entra a <em>comepues.com</em>
       </div>
-    </div>
 
-    <div class="pie">
-      ¿No te abre? Pídele la carta a tu mesero · <span>@turestaurante</span>   <!-- EDITA -->
+      <div class="pie">
+        <div class="llama titulo">Llámanos</div>
+        <div class="telefonos titulo">300 155 8094<i>·</i>302 387 7431<i>·</i>301 172 8125</div>
+      </div>
     </div>
   </div>
 
